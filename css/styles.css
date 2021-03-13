@@ -1,0 +1,98 @@
+    /*  RESET  */
+    
+    html {
+        box-sizing: border-box;
+    }
+    
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    /*  GAME  */
+    
+    body {
+        background-image: url(/images/coronavirus-background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .container {
+        font-family: 'Reggae One', cursive;
+        position: relative;
+        text-align: center;
+        font-weight: bold;
+        font-size: 2.5rem;
+        color: rgb(221, 202, 202);
+    }
+    
+    .start-button {
+        text-decoration: none;
+        color: rgb(221, 202, 202);
+        text-transform: uppercase;
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border: 2px solid black;
+        background-color: rgb(126, 7, 23);
+        border-radius: 0.5rem;
+    }
+    
+    #setup {
+        position: absolute;
+        right: 80px;
+        top: 400px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .setup {
+        font-size: 1.8rem;
+    }
+    
+    .but-music {
+        text-decoration: none;
+        color: rgb(221, 202, 202);
+        text-transform: uppercase;
+        font-size: 0.6rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid black;
+        background-color: rgb(126, 7, 23);
+        border-radius: 0.5rem;
+    }
+    
+    .but-sounds {
+        margin-top: 10px;
+        text-decoration: none;
+        color: rgb(221, 202, 202);
+        text-transform: uppercase;
+        font-size: 0.6rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid black;
+        background-color: rgb(126, 7, 23);
+        border-radius: 0.5rem;
+    }
+    
+    .show {
+        display: block;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    #win-screen {
+        display: none;
+    }
+    
+    #game {
+        display: none;
+    }
+    
+    #game-over {
+        display: none;
+    }
