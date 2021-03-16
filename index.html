@@ -14,12 +14,12 @@
 
     <!--Splash screen -->
 
-    <div id="first-screen" style="display: block;">
+    <div id="first-screen" style="display: block">
         <div>
             <h1>Coronavirus Attack</h1>
             <h2>year 2021</h2>
             <div>
-                <button class="play-button">Play</button>
+                <button id="play-button">Play</button>
             </div>
         </div>
 
@@ -33,7 +33,7 @@
 
     <!-- Game Screen -->
 
-    <div id="game" style="display: none;">
+    <div id="game" style="display: none">
         <canvas id="mycanvas" width="900 " height="550 "></canvas>
         <button id="start-button">Start</button>
         <div>
@@ -46,22 +46,22 @@
 
     <!--GameOver screen -->
 
-    <div id="game-over" style="display: none;">
+    <div id="game-over" style="display: none">
         <img src="/images/Game-over-2.jpg" alt="Game Over">
         <button id="reset">Reset</button>
     </div>
 
     <!--Game Win Screen -->
 
-    <div id="win-screen" style="display: none;">
+    <div id="win-screen" style="display: none">
         <img src="/images/you-win-lettering-pop-art-text-banner_185004-60.jpg" alt="you win">
         <button id="restart">Restart</button>
     </div>
 
-    <script src="js/Game.js "></script>
     <script src="js/Player.js "></script>
-    <script src="js/main.js "></script>
     <script src="js/items.js "></script>
+    <script src="js/Game.js "></script>
+    <script src="js/main.js "></script>
 </body>
 
 </html>

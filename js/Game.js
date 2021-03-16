@@ -10,4 +10,14 @@ class Game {
         this.ctx.fillStyle = 'red';
         this.ctx.fillRect = (20, 20, 30, 30)
     }
+
+    update() {
+        this.clean()
+        this.player.drawPlayer()
+        window.requestAnimationFrame(this.update.bind(this))
+    }
+
+    start() {
+        window.requestAnimationFrame(this.update.bind(this))
+    }
 };
