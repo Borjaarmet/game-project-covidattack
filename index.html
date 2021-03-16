@@ -6,51 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet">
     <title>Game Project</title>
 </head>
 
 <body>
 
+    <!--Splash screen -->
 
-    <!-- Splash screen -->
-
-    <div id="first-screen" class=" container splash ">
+    <div id="first-screen" class=" container splash">
         <div>
             <h1>Coronavirus Attack</h1>
-            <h2>2020/2021</h2>
-            <a href="# " class="start-button ">Start Game</a>
+            <h2>year 2021</h2>
+            <div>
+                <button class="play-button">Play</button>
+            </div>
         </div>
+
         <div id="setup">
-            <h3 class="setup ">Setup</h3>
-            <button class="but-music ">Music ON/OFF</button>
-            <button class="but-sounds ">Sounds effects ON/OFF</button>
+            <h3>Setup</h3>
+            <button class="but-setup ">Music ON/OFF</button>
+            <button class="but-setup ">Sounds effects ON/OFF</button>
         </div>
     </div>
 
     <!-- Game Screen -->
 
-    <div id="game" class="container hide"></div>
+    <div id="game" style="display: none;">
+        <canvas id="mycanvas" width="900 " height="550 "></canvas>
+        <button id="start-button">Start</button>
+        <div>
+            <h2 class="score">Score</h2>
+            <span></span>
+
+        </div>
+
+    </div>
 
     <!--GameOver screen -->
 
-    <div id="game-over">
-        <h1>Game Over!!</h1>
-        <a href="# " class="button ">Try Again</a> -->
+    <div id="game-over" style="display: none;">
+        <img src="/images/Game-over-2.jpg" alt="Game Over">
+        <button id="reset">Reset</button>
     </div>
 
     <!--Game Win Screen -->
 
-    <div id="win-screen">
-        <h1>Congratulations you`ve survived</h1>
-        <a href="# " class="button ">Reset</a> -->
+    <div id="win-screen" style="display: none;">
+        <img src="/images/you-win-lettering-pop-art-text-banner_185004-60.jpg" alt="you win">
+        <button id="restart">Restart</button>
     </div>
 
+
+
+
     <script src="js/Game.js "></script>
-    <script src="js/main.js "></script>
     <script src="js/Player.js "></script>
+    <script src="js/main.js "></script>
     <script src="js/Enemy.js "></script>
 </body>
 
