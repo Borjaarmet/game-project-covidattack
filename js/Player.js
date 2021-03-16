@@ -1,38 +1,21 @@
 class Player {
-    constructor(width, height, image, score, health, ) {
-        this.width = width;
-        this.height = height;
-        this.image = image;
-        this.score = score;
-        this.health = health;
-    }
+    constructor(ctx) {
+        this.ctx = ctx
 
+        this.x = 0;
+        this.y = 500;
+        this.w = 150;
+        this.h = 150;
+
+        this.speedX = 1;
+        this.speedY = 0;
+
+    }
     drawPlayer() {
 
-    }
+        this.ctx.fillStyle = 'green';
+        this.ctx.fillRect(260, 260, 50, 50);
+    };
 
-    playerMove() {
-        document.addEventListener('keydown', function(keyCode) {
-            console.log(keyCode);
-            switch (keyCode) {
-                case 'ArrowLeft':
-                    player.x = player.x + 1;
-                    break;
-                case 'ArrowRight':
-                    player.x = player.x - 1;
-                    break;
-                default:
-                    break;
-            }
-        });
-    }
-    playerCheckCollision() {
 
-    }
-    playerExtraLife() {
-
-    }
-    playerScore() {
-
-    }
 }
