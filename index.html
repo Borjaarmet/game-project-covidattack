@@ -14,7 +14,7 @@
 
     <!--Splash screen -->
 
-    <div id="first-screen" class=" container splash">
+    <div id="first-screen" style="display: none;">
         <div>
             <h1>Coronavirus Attack</h1>
             <h2>year 2021</h2>
@@ -32,7 +32,7 @@
 
     <!-- Game Screen -->
 
-    <div id="game" style="display: none;">
+    <div id="game" style="display: block;">
         <canvas id="mycanvas" width="900 " height="550 "></canvas>
         <button id="start-button">Start</button>
         <div>
@@ -57,13 +57,10 @@
         <button id="restart">Restart</button>
     </div>
 
-
-
-
     <script src="js/Game.js "></script>
     <script src="js/Player.js "></script>
     <script src="js/main.js "></script>
-    <script src="js/Enemy.js "></script>
+    <script src="js/items.js "></script>
 </body>
 
 </html>

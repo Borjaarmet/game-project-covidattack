@@ -1,39 +1,45 @@
-document.addEventListener('DomContentLoaded', () => {
+document.addEventListener('DOMcontentLoaded', () => {
 
 
-    function createGameScreen() {
-
-        const game = document.getElementById('game')
-        game.innerHTML = `
-        <canvas id="mycanvas " width="1000 " height="600 "></canvas>
-        <button id="play">Play</button>
-        `;
-
-        const startButton = document.querySelector('.start-button');
-        startButton.addEventListener('click', () => {
-            firstScreen.classList.add('hide')
-            game.classList.remove('hide')
-            game.classList.add('show')
-            let mycanvas = document.querySelector('#mycanvas');
-            let ctx = mycanvas.getContext('2d')
-
-        })
-
-
+    function printGameOver() {
+        let gameOver = document.getElementById('gameover');
+        let canvas = document.querySelector('#mycanvas');
+        canvas.style = 'display: none';
+        gameOver.style = 'display: block';
     }
-    createGameScreen()
+
+    function printWinScreen() {
+        let winScreen = document.getElementById('win-screen');
+        let canvas = document.querySelector('#mycanvas');
+        canvas.style = 'display: none';
+        winScreen.style = 'display: block';
+    }
+
+    function printGameScreen() {
+        const playButton = document.querySelector('#play-button');
+        playButton.addEventListener('click', () => {
+            let firstScreen = document.getElementById('first-screen').innerHTML;
+            firstScreen.style = 'display: none';
+
+            let game = document.getElementById('game').innerHTML;
+            game.style = 'display: block';
 
 
-    function createGameOverScreen() {
+            let canvas = game.querySelector('#mycanvas');
+            let ctx = canvas.getContext('2d');
 
+        });
     };
+    printGameScreen()
 
-    function destroyFirstScreen() {
 
-    };
+    /*function hideScreen() {
+        let firstScreen = document.getElementById('first-screen').innerHTML;
+        firstScreen.style.display = 'none';
+    }
 
-    function destroyGameScreen() {
-
-    };
-
+    function showScreen() {
+        let game = document.getElementById('game').innerHTML;
+        game.style.display = 'block';
+    }*/
 });

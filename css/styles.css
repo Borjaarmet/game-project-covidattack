@@ -1,160 +1,165 @@
-    /*  RESET  */
-    
-    html {
-        box-sizing: border-box;
-    }
-    
-    *,
-    *:before,
-    *:after {
-        box-sizing: inherit;
-    }
-    
-    body {
-        margin: 0 auto;
-        padding: 0;
-        background-image: url('../images/coronavirus-background.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    /*  GAME  */
-    /*  First Screen  */
-    
-    .container {
-        margin: 0 auto;
-        width: 1300px;
-    }
-    
-    .splash {
-        height: 660px;
-        font-family: 'Reggae One', cursive;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        font-weight: bold;
-        font-size: 2.5rem;
-        color: rgb(221, 202, 202);
-    }
-    
-    .play-button {
-        text-decoration: none;
-        color: rgb(221, 202, 202);
-        text-transform: uppercase;
-        font-size: 2rem;
-        padding: 1rem 2rem;
-        border: 2px solid black;
-        background-color: rgb(126, 7, 23);
-        border-radius: 0.5rem;
-        cursor: pointer;
-    }
-    
-    #setup {
-        position: absolute;
-        right: 80px;
-        top: 400px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .but-setup {
-        text-decoration: none;
-        color: rgb(221, 202, 202);
-        text-transform: uppercase;
-        font-size: 0.6rem;
-        padding: 0.5rem 1rem;
-        border: 2px solid black;
-        background-color: rgb(126, 7, 23);
-        border-radius: 0.5rem;
-        cursor: pointer;
-        ;
-    }
-    /*  Game Screen  */
-    
-    #game {
-        position: relative;
-        width: 1000px;
-        height: 600px;
-    }
-    
-    canvas#mycanvas {
-        position: absolute;
-        left: 180px;
-        top: 50px;
-        background-image: url('../images/background\ for\ canvas.jpg');
-        background-size: cover;
-        background-position: center;
-        border: 2px solid #888888;
-        box-shadow: 5px 5px 8px white, 10px 10px 8px rgb(221, 202, 202), 15px 15px 8px rgb(126, 7, 23);
-    }
-    
-    .score {
-        position: absolute;
-        left: 1150px;
-        top: 170px;
-        color: yellow;
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        border: 2px solid rgb(221, 202, 202);
-        padding: 5px 20px 70px 20px;
-        background-color: black;
-    }
-    
-    #start-button {
-        font-family: 'Reggae One', cursive;
-        position: absolute;
-        left: 1150px;
-        bottom: 150px;
-        color: rgb(221, 202, 202);
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        padding: 0.5rem 1rem;
-        border: 2px solid black;
-        background-color: rgb(126, 7, 23);
-        border-radius: 0.5rem;
-        cursor: pointer;
-    }
-    /*  game over screen  */
-    
-    #game-over {
-        position: relative;
-        margin: 5vh auto;
-        width: 1000px;
-        height: 600px;
-    }
-    
-    #reset {
-        font-family: 'Reggae One', cursive;
-        position: absolute;
-        left: 400px;
-        bottom: 40px;
-        color: rgb(221, 202, 202);
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        padding: 0.5rem 1rem;
-        border: 2px solid black;
-        background-color: rgb(126, 7, 23);
-        border-radius: 0.5rem;
-        cursor: pointer;
-    }
-    /*   win screen  */
-    
-    #win-screen {
-        position: absolute;
-        left: 370px;
-        top: 80px;
-    }
-    
-    #restart {
-        font-family: 'Reggae One', cursive;
-        position: absolute;
-        left: 220px;
-        top: 450px;
-        color: rgb(221, 202, 202);
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        padding: 0.5rem 1rem;
-        border: 2px solid black;
-        background-color: rgb(126, 7, 23);
-        border-radius: 0.5rem;
-        cursor: pointer;
-    }
+/*  RESET  */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    background-image: url('../images/coronavirus-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/*  GAME  */
+
+
+/*  First Screen  */
+
+#first-screen {
+    height: 660px;
+    font-family: 'Reggae One', cursive;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: rgb(221, 202, 202);
+}
+
+.play-button {
+    text-decoration: none;
+    color: rgb(221, 202, 202);
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border: 2px solid black;
+    background-color: rgb(126, 7, 23);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#setup {
+    position: absolute;
+    right: 80px;
+    top: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.but-setup {
+    text-decoration: none;
+    color: rgb(221, 202, 202);
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    background-color: rgb(126, 7, 23);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    ;
+}
+
+
+/*  Game Screen  */
+
+#game {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+}
+
+#mycanvas {
+    position: absolute;
+    left: 180px;
+    top: 50px;
+    background-image: url('../images/background\ for\ canvas.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #888888;
+    box-shadow: 5px 5px 8px white, 10px 10px 8px rgb(221, 202, 202), 15px 15px 8px rgb(126, 7, 23);
+}
+
+.score {
+    position: absolute;
+    left: 1150px;
+    top: 170px;
+    color: yellow;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    border: 2px solid rgb(221, 202, 202);
+    padding: 5px 20px 70px 20px;
+    background-color: black;
+}
+
+#start-button {
+    font-family: 'Reggae One', cursive;
+    position: absolute;
+    left: 1150px;
+    bottom: 150px;
+    color: rgb(221, 202, 202);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    background-color: rgb(126, 7, 23);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+
+/*  game over screen  */
+
+#game-over {
+    position: relative;
+    margin: 5vh auto;
+    width: 1000px;
+    height: 600px;
+}
+
+#reset {
+    font-family: 'Reggae One', cursive;
+    position: absolute;
+    left: 400px;
+    bottom: 40px;
+    color: rgb(221, 202, 202);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    background-color: rgb(126, 7, 23);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+
+/*   win screen  */
+
+#win-screen {
+    position: absolute;
+    left: 370px;
+    top: 80px;
+}
+
+#restart {
+    font-family: 'Reggae One', cursive;
+    position: absolute;
+    left: 220px;
+    top: 450px;
+    color: rgb(221, 202, 202);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    background-color: rgb(126, 7, 23);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
