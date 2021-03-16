@@ -68,6 +68,19 @@ body {
     ;
 }
 
+.but-instructions {
+    text-decoration: none;
+    color: rgb(221, 202, 202);
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    background-color: rgb(126, 7, 23);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    ;
+}
+
 
 /*  Game Screen  */
 
