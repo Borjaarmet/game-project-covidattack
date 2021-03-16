@@ -1,43 +1,54 @@
 class Items {
-    constructor(width, height, image) {
-        this.width = width;
-        this.height = height;
-        this.image = image;
-    }
-}
-class Enemy extends Items {
-    constructor(kill, width, height, image, )
-    super(width, height, image)
+    constructor(ctx, x, y, w, h) {
+        this.ctx = ctx;
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
 
-    generateEnemy() {
+        this.speedX = 0;
+        this.speedY = 1;
 
     }
-
 }
+class Virus extends Items {
+    constructor(kill, ctx, x, y, w, h) {
+        super(ctx, x, y, w, h)
+    }
+
+    generateVirus() {
+
+    }
+}
+
 class Rolls extends Items {
-    constructor(score, width, height, image, )
-    super(width, height, image)
+    constructor(score, ctx, x, y, w, h) {
+        super(ctx, x, y, w, h)
+    }
 
     generateRolls() {
 
     }
-
 }
+
 class vaccines extends Items {
-    constructor(shoots, width, height, image, )
-    super(width, height, image)
+    constructor(shoot, ctx, x, y, w, h) {
+        super(ctx, x, y, w, h)
+
+    }
 
     generateVaccines() {
 
     }
-
 }
+
 class Masks extends Items {
-    constructor(health, width, height, image, )
-    super(width, height, image)
+    constructor(health, ctx, x, y, w, h) {
+        super(ctx, x, y, w, h)
+
+    }
 
     generateMasks() {
 
     }
-
 }
