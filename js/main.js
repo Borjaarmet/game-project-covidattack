@@ -41,12 +41,28 @@ document.addEventListener('DOMContentLoaded', () => {
     function showInstructions() {
         let btnInstr = document.querySelector('.but-instructions');
         btnInstr.addEventListener('click', () => {
+            console.log("paragraph appears")
             let paragraph = document.querySelector('.hide')
             paragraph.classList.remove('hide');
             paragraph.classList.add('show');
+            let btnClose = document.querySelector('.hide');
+            btnClose.classList.remove('hide');
+            btnClose.classList.add('show');
         })
-
     }
     showInstructions()
 
+    function closeInstructions() {
+        let btnClose = document.querySelector('.but-close');
+        btnClose.addEventListener('click', () => {
+            console.log("paragraph hide")
+            let paragraph = document.querySelector('.hide')
+            if (paragraph.classList == '.show') {
+                paragraph.classList.add('hide')
+            } else {
+                paragraph.classList.add('hide')
+            }
+        })
+    }
+    closeInstructions()
 });
