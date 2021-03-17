@@ -4,19 +4,19 @@ console.log('main.js')
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Dom loaded')
 
-    /*function printGameOver() {
+    function printGameOver() {
         let gameOver = document.getElementById('gameover');
         let canvas = document.querySelector('#mycanvas');
         canvas.style = 'display: none';
         gameOver.style = 'display: block';
-    }*/
+    }
 
-    /*function printWinScreen() {
+    function printWinScreen() {
         let winScreen = document.getElementById('win-screen');
         let canvas = document.querySelector('#mycanvas');
         canvas.style = 'display: none';
         winScreen.style = 'display: block';
-    }*/
+    }
 
     function printGameScreen() {
         const playButton = document.querySelector('#play-button');
@@ -38,14 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     printGameScreen()
 
+    function showInstructions() {
+        let btnInstr = document.querySelector('.but-instructions');
+        btnInstr.addEventListener('click', () => {
+            let paragraph = document.querySelector('.hide')
+            paragraph.classList.remove('hide');
+            paragraph.classList.add('show');
+        })
 
-    /*function hideScreen() {
-        let firstScreen = document.getElementById('first-screen').innerHTML;
-        firstScreen.style.display = 'none';
     }
+    showInstructions()
 
-    function showScreen() {
-        let game = document.getElementById('game').innerHTML;
-        game.style.display = 'block';
-    }*/
 });

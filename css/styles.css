@@ -35,7 +35,7 @@ body {
     color: rgb(221, 202, 202);
 }
 
-.play-button {
+#play-button {
     text-decoration: none;
     color: rgb(221, 202, 202);
     text-transform: uppercase;
@@ -78,7 +78,21 @@ body {
     background-color: rgb(126, 7, 23);
     border-radius: 0.5rem;
     cursor: pointer;
-    ;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.paragraph {
+    font-family: 'Reggae One', cursive;
+    border: 2px solid black;
+    color: white;
+    background-color: black;
 }
 
 
