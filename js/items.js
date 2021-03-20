@@ -1,53 +1,68 @@
-class Items {
-    constructor(ctx, x, y, w, h) {
+class Virus {
+    constructor(ctx) {
         this.ctx = ctx;
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
+        this.width = 40;
+        this.height = 40;
+        this.x = this.randomX();
+        this.y = 0;
+        this.speedY = 5;
+        this.virusArray = [];
 
-        this.speedX = 0;
-        this.speedY = 1;
+
 
     }
+
+    drawVirus() {
+            this.ctx.fillStyle = 'red';
+            this.ctx.fillRect(this.x, this.y, 40, 40);
+        }
+        /*generateAllVirus() {
+            for (let i = 0; i < 10; i++) {
+                this.virusArray.push()
+
+            }
+
+        }*/
+
+
+
+    move() {
+        this.y = this.y + this.speedY;
+        if (this.y > 500) {
+            this.y = this.y % 500;
+        } else if (this.y < 0) {
+            this.y = (this.y + 500) % 500;
+        }
+
+    }
+
+    startMovingVirus() {
+        setInterval(this.moveVirus.bind(this))
+    }
+
+    randomX() {
+        return Math.random() * 900;
+    }
+
+
+
 }
-class Virus extends Items {
-    constructor(kill, ctx, x, y, w, h) {
-        super(ctx, x, y, w, h)
-    }
-    generateVirus() {
 
-    }
-}
 
-class Rolls extends Items {
-    constructor(score, ctx, x, y, w, h) {
-        super(ctx, x, y, w, h)
-    }
 
-    generateRolls() {
-
-    }
-}
-
-class vaccines extends Items {
-    constructor(shoot, ctx, x, y, w, h) {
-        super(ctx, x, y, w, h)
-
+class Rolls {
+    constructor(ctx) {
+        this.ctx = ctx;
+        this.width = 40;
+        this.height = 40;
+        this.x = this.randomX();
+        this.y = 0;
+        this.speedY = this.speedY();
     }
 
-    generateVaccines() {
-
-    }
-}
-
-class Masks extends Items {
-    constructor(health, ctx, x, y, w, h) {
-        super(ctx, x, y, w, h)
-
+    drawRolls() {
+        this.ctx.fillStyle = 'blue';
+        this.ctx.fillRect(this.x, this.y, this.width, this.height)
     }
 
-    generateMasks() {
-
-    }
 }
