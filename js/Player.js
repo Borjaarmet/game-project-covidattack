@@ -38,6 +38,7 @@ class Player {
             this.y < virus.y + virus.height &&
             this.y + this.height > virus.y
         );
+
     };
 
 }
