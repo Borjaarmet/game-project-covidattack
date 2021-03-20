@@ -15,7 +15,7 @@
     <!--Splash screen -->
 
     <div id="first-screen" style="display: block">
-        <div>
+        <div id="title">
             <h1>Coronavirus Attack</h1>
             <h2>year 2021</h2>
             <div>
@@ -25,27 +25,31 @@
 
         <div id="setup">
             <h3>Setup</h3>
-            <button class="but-instructions">Instructions</button>
-            <button class="but-setup ">Music ON/OFF</button>
+            <button onclick="showInstructions()" class="but-instructions">Instructions</button>
+            <div id="instructions hide">
+                <p class="paragraph hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat sapiente quis esse! Consequuntur esse ducimus ad dolore quaerat, neque alias accusantium cumque excepturi, eum est commodi doloribus iste consequatur eos. Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Totam quam error amet commodi maiores consectetur atque dignissimos sunt fugiat asperiores, dolores id nihil, culpa ab excepturi iusto nobis quae. Quas?
+                </p>
+                <button onclick="closeInstructions()" class="but-close hide">Close</button>
+            </div>
             <button class="but-setup ">Sounds effects ON/OFF</button>
         </div>
     </div>
 
     <!-- Game Screen -->
 
-            <button class="but-setup ">Music ON/OFF</button>
-            <button class="but-setup ">Sounds effects ON/OFF</button>
-
     <div id="game" style="display: none">
-        <canvas id="mycanvas" width="900 " height="550 "></canvas>
-        <button id="start-button">Start</button>
-        <div>
-            <h2 class="score">Score</h2>
-            <span></span>
+        <canvas id="mycanvas" width="900" height="500"></canvas>
 
+        <div id="but-score">
+            <button id="start-button">Start</button>
+            <h2 class="score">Score</h2>
+            <span>rolls: </span>
         </div>
 
     </div>
+
+
 
     <!--GameOver screen -->
 
