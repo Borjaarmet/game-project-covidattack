@@ -1,6 +1,3 @@
-console.log('main.js')
-
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Dom loaded')
 
@@ -18,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
         winScreen.style = 'display: block';
     }
 
+    let canvas = document.getElementById('mycanvas');
+    const ctx = canvas.getContext('2d');
+
+
     function printGameScreen() {
         const playButton = document.querySelector('#play-button');
         console.log("click", playButton)
@@ -30,13 +31,28 @@ document.addEventListener('DOMContentLoaded', () => {
             game.style = 'display: block';
 
 
-            let canvas = game.querySelector('#mycanvas');
-            let ctx = canvas.getContext('2d');
+            const startButton = document.querySelector('#start-button');
+            startButton.addEventListener('click', () => {
+
+
+                console.log("click", startButton)
+                const covidGame = new Game({
+                        ctx: ctx,
+                        player: new Player(ctx),
+                        virus: new Virus(ctx),
+                    },
+                    printGameOver
+                );
+
+                covidGame.start();
+
+            });
 
         });
-
-    };
+    }
     printGameScreen()
+
+
 
     function showInstructions() {
         let btnInstr = document.querySelector('.but-instructions');
@@ -45,9 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let paragraph = document.querySelector('.hide')
             paragraph.classList.remove('hide');
             paragraph.classList.add('show');
+
             let btnClose = document.querySelector('.hide');
             btnClose.classList.remove('hide');
             btnClose.classList.add('show');
+
+
         })
     }
     showInstructions()
@@ -56,12 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let btnClose = document.querySelector('.but-close');
         btnClose.addEventListener('click', () => {
             console.log("paragraph hide")
-            let paragraph = document.querySelector('.hide')
-            if (paragraph.classList == '.show') {
-                paragraph.classList.add('hide')
-            } else {
-                paragraph.classList.add('hide')
-            }
+            let paragraph = document.querySelector('.show')
+            paragraph.classList.remove('show');
+            paragraph.classList.add('hide');
+
+            let btnClose = document.querySelector('.show');
+            btnClose.classList.remove('show');
+            btnClose.classList.add('hide');
+
         })
     }
     closeInstructions()
