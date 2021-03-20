@@ -37,8 +37,22 @@ class Player {
             this.x + this.width > virus.x &&
             this.y < virus.y + virus.height &&
             this.y + this.height > virus.y
+
         );
 
     };
+
+
+    /*brainCollision() {
+        generatedBrain.forEach(item => {
+            if (this.player.x < (item.x + item.size) &&
+                (this.player.x + this.player.size / 2) > item.x &&
+                this.player.y < (item.y + item.size) &&
+                (this.player.y + this.player.size) > item.y && item.status === true) {
+                item.status = false;
+                this.score++
+            }
+        });
+    }*/
 
 }

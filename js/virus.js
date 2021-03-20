@@ -36,4 +36,5 @@ class Virus {
     randomSpeedY() {
         return 12 + Math.random() * (-3);
     }
+
 }
