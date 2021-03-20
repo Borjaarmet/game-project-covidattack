@@ -13,6 +13,10 @@ class Player {
     }
     drawPlayer() {
 
+        this.ctx.fillStyle = 'black';
+        this.ctx.fillRect(500, 490, 40, 40);
+    };
+
         this.ctx.fillStyle = 'green';
         this.ctx.fillRect(260, 260, 50, 50);
     };

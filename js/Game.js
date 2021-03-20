@@ -1,23 +1,48 @@
 class Game {
-    constructor(options, callback) {
-        this.ctx = options.ctx;
-        this.player = options.player;
-        this.items = undefined;
-        this.cb = callback;
+    constructor(object) {
+        this.ctx = object.ctx;
+        this.player = object.player;
+        this.virus = object.virus;
+
     }
 
-    drawItems() {
-        this.ctx.fillStyle = 'red';
-        this.ctx.fillRect = (20, 20, 30, 30)
-    }
+    assignControlsToKeys() {
+        document.addEventListener('keydown', (event) => {
+            switch (event.code) {
+                case 'ArrowRight':
+                    this.player.goRight();
+                    console.log("move right", this.player)
+                    break;
+                case 'ArrowLeft':
+                    this.player.goLeft();
+                    console.log("move left", this.player)
+                    break;
+            }
+
+        });
+    };
+
+
 
     update() {
-        this.clean()
-        this.player.drawPlayer()
+        this.clean();
+        this.player.drawPlayer();
+        this.virus.drawVirus();
+
         window.requestAnimationFrame(this.update.bind(this))
     }
 
+    clean() {
+
+        this.ctx.clearRect(0, 0, 900, 500);
+        console.log("works")
+
+    }
+
     start() {
+        this.assignControlsToKeys();
+
+
         window.requestAnimationFrame(this.update.bind(this))
     }
 };

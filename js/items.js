@@ -15,7 +15,6 @@ class Virus extends Items {
     constructor(kill, ctx, x, y, w, h) {
         super(ctx, x, y, w, h)
     }
-
     generateVirus() {
 
     }
