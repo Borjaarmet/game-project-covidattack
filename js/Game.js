@@ -4,7 +4,9 @@ class Game {
         this.player = object.player;
         this.virus = object.virus;
         this.viruses = [];
+        this.virusstatus = true;
         this.rolls = [];
+        this.score = 0;
     }
 
     assignControlsToKeys() {
@@ -60,6 +62,17 @@ class Game {
     }
 
 
+    virusCollision() {
+        this.viruses.forEach((virus) => {
+            if (this.player.x < (virus.x + virus.width) &&
+                (this.player.x + this.player.width / 2) > virus.x &&
+                this.player.y < (virus.y + virus.height) &&
+                (this.player.y + this.player.height) > virus.y && this.virusstatus === true) {
+                this.virusstatus = false;
+            }
+        })
+    };
+
     clean() {
         this.ctx.clearRect(0, 0, 900, 500);
     }
@@ -71,11 +84,16 @@ class Game {
         this.drawRolls();
 
 
+        if (this.virusCollision()) {
+            console.log("collides virus")
+            printGameOver();
+        }
 
 
 
         window.requestAnimationFrame(this.update.bind(this))
     }
+
 
 
     start() {

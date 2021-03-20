@@ -8,7 +8,7 @@ class Rolls {
         this.y = 0;
         this.speedY = this.randomSpeedY();
         this.interval = undefined;
-        this.score = 0;
+
     }
 
     draw() {
@@ -33,5 +33,13 @@ class Rolls {
     }
     randomSpeedY() {
         return 8 + Math.random() * (-1);
+    }
+
+
+    stop() {
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = undefined;
+        }
     }
 }
