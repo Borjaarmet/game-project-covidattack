@@ -1,12 +1,18 @@
 class Game {
-    constructor(object) {
+    constructor(object, callback) {
         this.ctx = object.ctx;
         this.player = object.player;
         this.virus = object.virus;
+        this.rolls = object.rolls;
         this.viruses = [];
-        this.virusstatus = true;
         this.rolls = [];
+        this.cb = callback;
         this.score = 0;
+
+
+
+
+
     }
 
     assignControlsToKeys() {
@@ -37,13 +43,13 @@ class Game {
     }
 
     generateRandomVirus() {
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 10; i++) {
             this.viruses.push(new Virus(this.ctx));
         }
     }
 
     generateRandomRolls() {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 7; i++) {
             this.rolls.push(new Rolls(this.ctx));
 
         }
@@ -63,15 +69,72 @@ class Game {
 
 
     virusCollision() {
-        this.viruses.forEach((virus) => {
+        this.viruses.forEach((virus, index) => {
             if (this.player.x < (virus.x + virus.width) &&
                 (this.player.x + this.player.width / 2) > virus.x &&
                 this.player.y < (virus.y + virus.height) &&
-                (this.player.y + this.player.height) > virus.y && this.virusstatus === true) {
-                this.virusstatus = false;
+                (this.player.y + this.player.height) > virus.y) {
+
+                this.viruses.splice(index, 1)
+                console.log("collides virus", index)
+
+
+                let gameOver = document.querySelector('#game-over');
+                let canvas = document.querySelector('#game');
+                canvas.style = 'display: none';
+                gameOver.style = 'display: block';
+
+                let reset = document.querySelector('#reset-btn')
+                reset.addEventListener('click', () => {
+                    gameOver.style = 'display: none';
+                    canvas.style = 'display: block';
+
+                });
+                /*let scoreEl = document.getElementById('scoreElement');
+                scoreEl.innerHTML = '0';*/
             }
+
+        })
+
+    };
+
+    rollsCollision() {
+
+        this.rolls.forEach((roll, index) => {
+            if (this.player.x < (roll.x + roll.width) &&
+                (this.player.x + this.player.width / 2) > roll.x &&
+                this.player.y < (roll.y + roll.height) &&
+                (this.player.y + this.player.height) > roll.y) {
+
+                this.rolls.splice(index, 1);
+
+                this.score += 1;
+                let scoreEl = document.getElementById('scoreElement');
+                scoreEl.innerHTML = this.score;
+
+
+                /*if (this.score === 3) {
+                    console.log("wiiiiin");
+                    this.virus.stopVirus(this.startMovingVirus());
+                    this.rolls.stopRolls(this.startMovingRolls());
+                    let winScreen = document.getElementById('win-screen');
+                    let canvas = document.querySelector('#game');
+                    canvas.style = 'display: none';
+                    winScreen.style = 'display: block';
+
+                    let restart = document.querySelector('#restart-btn')
+                    restart.addEventListener('click', () => {
+                        winScreen.style = 'display: none';
+                        canvas.style = 'display: block';
+                    });
+
+
+                }*/
+            }
+
         })
     };
+
 
     clean() {
         this.ctx.clearRect(0, 0, 900, 500);
@@ -82,17 +145,27 @@ class Game {
         this.player.drawPlayer();
         this.drawViruses();
         this.drawRolls();
+        if (this.rollsCollision()) {
+            console.log("collides rolls", index)
+            if (this.score === 3) {
+                this.rolls.stopRolls()
+                this.cb();
+                return printWinScreen();
 
 
-        if (this.virusCollision()) {
-            console.log("collides virus")
-            printGameOver();
+            }
         }
-
+        if (this.virusCollision()) {
+            console.log(" game over");
+            this.virus.stopVirus(startMovingVirus());
+            this.cb();
+            return printGameOver();
+        }
 
 
         window.requestAnimationFrame(this.update.bind(this))
     }
+
 
 
 

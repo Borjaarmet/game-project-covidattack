@@ -8,6 +8,7 @@ class Player {
         this.distance = 10;
         this.direction = 'right';
 
+
     }
 
     goRight() {
@@ -27,32 +28,19 @@ class Player {
     };
 
     drawPlayer() {
-        this.ctx.fillStyle = 'black';
-        this.ctx.fillRect(this.x, this.y, 40, 40);
+        /*this.ctx.fillStyle = 'black';
+        this.ctx.fillRect(this.x, this.y, 40, 40);*/
+
+        let miImg = new Image();
+        miImg.src = "/images/player.png";
+        this.ctx.drawImage(miImg, this.x, this.y)
     };
 
-    collidesWith(virus) {
-        return (
-            this.x < virus.x + virus.width &&
-            this.x + this.width > virus.x &&
-            this.y < virus.y + virus.height &&
-            this.y + this.height > virus.y
-
-        );
-
-    };
+    rotate() {
+        this.player.sty
+    }
 
 
-    /*brainCollision() {
-        generatedBrain.forEach(item => {
-            if (this.player.x < (item.x + item.size) &&
-                (this.player.x + this.player.size / 2) > item.x &&
-                this.player.y < (item.y + item.size) &&
-                (this.player.y + this.player.size) > item.y && item.status === true) {
-                item.status = false;
-                this.score++
-            }
-        });
-    }*/
+
 
 }

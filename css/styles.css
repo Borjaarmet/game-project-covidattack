@@ -144,16 +144,18 @@ body {
     border: 2px solid #888888;
     box-shadow: 5px 5px 8px white, 10px 10px 8px rgb(221, 202, 202), 15px 15px 8px rgb(126, 7, 23);
     margin-bottom: 0;
+    margin-top: 0;
 }
 
-#but-score {}
-
 .score {
+    position: fixed;
+    left: 250px;
+    top: 25px;
     color: yellow;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border: 2px solid rgb(221, 202, 202);
-    padding: 5px 20px 70px 20px;
+    padding: 10px 10px 10px 10px;
     background-color: black;
 }
 
@@ -170,17 +172,21 @@ body {
     cursor: pointer;
 }
 
+.rotate {
+    transform: rotate(90deg);
+}
+
 
 /*  game over screen  */
 
 #game-over {
     position: relative;
     margin: 5vh auto;
-    width: 1000px;
-    height: 600px;
+    width: 900px;
+    height: 500px;
 }
 
-#reset {
+#reset-btn {
     font-family: 'Reggae One', cursive;
     position: absolute;
     left: 400px;
@@ -199,7 +205,7 @@ body {
 /*   win screen  */
 
 #win-screen {
-    position: absolute;
+    position: relative;
     left: 370px;
     top: 80px;
 }

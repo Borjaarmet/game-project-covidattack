@@ -39,13 +39,13 @@
     <!-- Game Screen -->
 
     <div id="game" style="display: none">
+        <div class="score"><span>Score: </span> <span id="scoreElement"> 0</span></div>
         <canvas id="mycanvas" width="900" height="500"></canvas>
 
         <div id="but-score">
             <button id="start-button">Start</button>
-            <h2 class="score">Score</h2>
-            <span>rolls: </span>
         </div>
+
 
     </div>
 
@@ -55,14 +55,14 @@
 
     <div id="game-over" style="display: none">
         <img src="/images/Game-over-2.jpg" alt="Game Over">
-        <button id="reset">Reset</button>
+        <button id="reset-btn">Reset</button>
     </div>
 
     <!--Game Win Screen -->
 
     <div id="win-screen" style="display: none">
         <img src="/images/you-win-lettering-pop-art-text-banner_185004-60.jpg" alt="you win">
-        <button id="restart">Restart</button>
+        <button id="restart-btn">Restart</button>
     </div>
 
     <script src="js/Player.js "></script>

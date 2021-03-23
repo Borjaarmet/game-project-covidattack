@@ -2,17 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Dom loaded')
 
     function printGameOver() {
-        let gameOver = document.getElementById('gameover');
-        let canvas = document.querySelector('#mycanvas');
+        let gameOver = document.querySelector('#game-over');
+        let canvas = document.querySelector('#game');
         canvas.style = 'display: none';
         gameOver.style = 'display: block';
+
+        let reset = document.querySelector('#reset-btn')
+        reset.addEventListener('click', () => {
+            gameOver.style = 'display: none';
+            canvas.style = 'display: block';
+        });
     }
 
     function printWinScreen() {
         let winScreen = document.getElementById('win-screen');
-        let canvas = document.querySelector('#mycanvas');
+        let canvas = document.querySelector('#game');
         canvas.style = 'display: none';
         winScreen.style = 'display: block';
+
+        let restart = document.querySelector('#restart-btn')
+        restart.addEventListener('click', () => {
+            winScreen.style = 'display: none';
+            canvas.style = 'display: block';
+        });
     }
 
     let canvas = document.getElementById('mycanvas');
@@ -40,8 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx: ctx,
                         player: new Player(ctx),
                         virus: new Virus(ctx),
+                        rolls: new Rolls(ctx)
                     },
-                    printGameOver
+                    printGameOver, printWinScreen
+
                 );
 
                 covidGame.start();
