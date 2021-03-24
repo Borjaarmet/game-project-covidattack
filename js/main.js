@@ -10,7 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let reset = document.querySelector('#reset-btn')
         reset.addEventListener('click', () => {
             gameOver.style = 'display: none';
-            canvas.style = 'display: block';
+            let firstScreen = document.getElementById('first-screen');
+            firstScreen.style = 'display: block';
+
+
+
+
+
         });
     }
 
@@ -46,15 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const startButton = document.querySelector('#start-button');
             startButton.addEventListener('click', () => {
 
-
-                console.log("click", startButton)
                 const covidGame = new Game({
                         ctx: ctx,
                         player: new Player(ctx),
                         virus: new Virus(ctx),
                         rolls: new Rolls(ctx)
                     },
-                    printGameOver, printWinScreen
+                    printGameOver,
+                    printWinScreen
 
                 );
 

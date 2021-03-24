@@ -16,7 +16,7 @@ class Virus {
         this.ctx.fillRect(this.x, this.y, 40, 40);*/
 
         let miImg = new Image();
-        miImg.src = "/images/unnamed.png";
+        miImg.src = "images/unnamed.png";
         this.ctx.drawImage(miImg, this.x, this.y)
     }
 
@@ -38,12 +38,7 @@ class Virus {
 
 
 
-    stopVirus() {
-        if (this.interval) {
-            clearInterval(this);
-            this.interval = undefined;
-        }
-    }
+
 
 
     randomX() {

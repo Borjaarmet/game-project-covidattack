@@ -1,13 +1,15 @@
 class Game {
-    constructor(object, callback) {
+    constructor(object, callbackWin, callbackOver) {
         this.ctx = object.ctx;
         this.player = object.player;
         this.virus = object.virus;
         this.rolls = object.rolls;
         this.viruses = [];
         this.rolls = [];
-        this.cb = callback;
+        this.cbWin = callbackWin;
+        this.cbOver = callbackOver;
         this.score = 0;
+        this.intervalId = undefined;
 
 
 
@@ -43,13 +45,18 @@ class Game {
     }
 
     generateRandomVirus() {
-        for (let i = 0; i < 10; i++) {
+
+        for (let i = 0; i < 12; i++) {
             this.viruses.push(new Virus(this.ctx));
         }
     }
+    interval() {
+        this.intervalId = setInterval(this.generateRandomVirus, 1000)
+    }
+
 
     generateRandomRolls() {
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 10; i++) {
             this.rolls.push(new Rolls(this.ctx));
 
         }
@@ -61,79 +68,62 @@ class Game {
         })
     }
 
+    stopVirus() {
+        if (this.interval) {
+            clearInterval(this);
+            this.interval = undefined;
+        }
+    }
+
     startRolls() {
         this.rolls.forEach((roll) => {
             roll.startMovingRolls();
         })
     }
+    stopRolls() {
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = undefined;
+        }
+    }
 
 
     virusCollision() {
+        let collision = false
         this.viruses.forEach((virus, index) => {
             if (this.player.x < (virus.x + virus.width) &&
                 (this.player.x + this.player.width / 2) > virus.x &&
                 this.player.y < (virus.y + virus.height) &&
                 (this.player.y + this.player.height) > virus.y) {
-
+                collision = true;
                 this.viruses.splice(index, 1)
-                console.log("collides virus", index)
 
-
-                let gameOver = document.querySelector('#game-over');
-                let canvas = document.querySelector('#game');
-                canvas.style = 'display: none';
-                gameOver.style = 'display: block';
-
-                let reset = document.querySelector('#reset-btn')
-                reset.addEventListener('click', () => {
-                    gameOver.style = 'display: none';
-                    canvas.style = 'display: block';
-
-                });
-                /*let scoreEl = document.getElementById('scoreElement');
-                scoreEl.innerHTML = '0';*/
             }
 
         })
-
+        return collision
     };
 
     rollsCollision() {
-
+        let collision = false
         this.rolls.forEach((roll, index) => {
             if (this.player.x < (roll.x + roll.width) &&
                 (this.player.x + this.player.width / 2) > roll.x &&
                 this.player.y < (roll.y + roll.height) &&
                 (this.player.y + this.player.height) > roll.y) {
-
+                collision = true
                 this.rolls.splice(index, 1);
 
                 this.score += 1;
                 let scoreEl = document.getElementById('scoreElement');
                 scoreEl.innerHTML = this.score;
 
-
-                /*if (this.score === 3) {
-                    console.log("wiiiiin");
-                    this.virus.stopVirus(this.startMovingVirus());
-                    this.rolls.stopRolls(this.startMovingRolls());
-                    let winScreen = document.getElementById('win-screen');
-                    let canvas = document.querySelector('#game');
-                    canvas.style = 'display: none';
-                    winScreen.style = 'display: block';
-
-                    let restart = document.querySelector('#restart-btn')
-                    restart.addEventListener('click', () => {
-                        winScreen.style = 'display: none';
-                        canvas.style = 'display: block';
-                    });
-
-
-                }*/
             }
 
         })
+        return collision
     };
+
 
 
     clean() {
@@ -146,20 +136,22 @@ class Game {
         this.drawViruses();
         this.drawRolls();
         if (this.rollsCollision()) {
-            console.log("collides rolls", index)
-            if (this.score === 3) {
-                this.rolls.stopRolls()
-                this.cb();
-                return printWinScreen();
 
-
+            if (this.score === 2) {
+                console.log("you win")
+                this.stopRolls();
+                this.stopVirus();
+                this.cbOver();
+                return;
             }
         }
+
         if (this.virusCollision()) {
-            console.log(" game over");
-            this.virus.stopVirus(startMovingVirus());
-            this.cb();
-            return printGameOver();
+            console.log("game over");
+            this.stopVirus();
+            this.stopRolls();
+            this.cbWin();
+            return;
         }
 
 

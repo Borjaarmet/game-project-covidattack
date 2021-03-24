@@ -16,7 +16,7 @@ class Rolls {
         this.ctx.fillRect(this.x, this.y, 40, 40);*/
 
         let miImg = new Image();
-        miImg.src = "/images/Rollswc1.jpg";
+        miImg.src = "images/Rollswc1.jpg";
         this.img.drawImage(miImg, this.x, this.y)
     }
 
@@ -32,12 +32,7 @@ class Rolls {
     startMovingRolls() {
         this.interval = setInterval(this.move.bind(this), 100);
     }
-    stopRolls() {
-        if (this.interval) {
-            return clearInterval(this.interval);
-            this.interval = undefined;
-        }
-    }
+
     randomX() {
         return Math.random() * 900;
     }

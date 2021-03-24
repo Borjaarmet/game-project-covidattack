@@ -32,15 +32,9 @@ class Player {
         this.ctx.fillRect(this.x, this.y, 40, 40);*/
 
         let miImg = new Image();
-        miImg.src = "/images/player.png";
+        miImg.src = "images/player.png";
         this.ctx.drawImage(miImg, this.x, this.y)
     };
-
-    rotate() {
-        this.player.sty
-    }
-
-
 
 
 }
