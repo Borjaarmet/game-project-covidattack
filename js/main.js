@@ -15,9 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
         });
+
     }
 
     function printWinScreen() {
@@ -56,7 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx: ctx,
                         player: new Player(ctx),
                         virus: new Virus(ctx),
-                        rolls: new Rolls(ctx)
+                        rolls: new Rolls(ctx),
+                        vaccines: new Vaccines(ctx),
                     },
                     printGameOver,
                     printWinScreen

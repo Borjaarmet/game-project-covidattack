@@ -5,27 +5,33 @@ class Player {
         this.y = 420;
         this.width = 40;
         this.height = 40;
-        this.distance = 10;
+        this.distance = 15;
         this.direction = 'right';
+
+
+
 
 
     }
 
     goRight() {
         this.x += this.distance;
-        if (this.x >= 860) {
-            console.log("collides wall")
-        }
+        if (this.x > 900) {
 
+            this.x = 0;
+
+        }
     };
 
     goLeft() {
         this.x -= this.distance;
-        if (this.x <= 40) {
-            console.log("collides wall")
-        }
+        if (this.x < 0) {
 
+            this.x = 900; //this.distance - 1;
+        }
     };
+
+
 
     drawPlayer() {
         /*this.ctx.fillStyle = 'black';
@@ -36,5 +42,17 @@ class Player {
         this.ctx.drawImage(miImg, this.x, this.y)
     };
 
+    /*shootVacc() {
+        this.vaccinesArr.forEach((vacc) => {
+            vacc.drawVaccines();
+        })
+        for (let i = 0; i < 20; i++) {
+            this.vaccinesArr.push(new Vaccines(this.ctx))
+            this.y += this.velocity;
+            if (this.y <= 0) {
+                this.vaccinesArr.splice(i, 1)
+            }
+        }
+    }*/
 
 }

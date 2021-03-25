@@ -32,14 +32,8 @@ class Virus {
     }
 
     startMovingVirus() {
-        this.interval = setInterval(this.move.bind(this), 100);
+        this.interval = setInterval(this.move.bind(this), 200);
     }
-
-
-
-
-
-
 
     randomX() {
         return Math.random() * 900;

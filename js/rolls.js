@@ -1,7 +1,7 @@
 class Rolls {
-    constructor(img) {
+    constructor(ctx) {
 
-        this.img = img;
+        this.ctx = ctx;
         this.width = 40;
         this.height = 40;
         this.x = this.randomX();
@@ -12,12 +12,10 @@ class Rolls {
     }
 
     draw() {
-        /*this.ctx.fillStyle = "blue";
-        this.ctx.fillRect(this.x, this.y, 40, 40);*/
 
         let miImg = new Image();
         miImg.src = "images/Rollswc1.jpg";
-        this.img.drawImage(miImg, this.x, this.y)
+        this.ctx.drawImage(miImg, this.x, this.y)
     }
 
     move() {
@@ -30,14 +28,14 @@ class Rolls {
     }
 
     startMovingRolls() {
-        this.interval = setInterval(this.move.bind(this), 100);
+        this.interval = setInterval(this.move.bind(this), 90);
     }
 
     randomX() {
         return Math.random() * 900;
     }
     randomSpeedY() {
-        return 8 + Math.random() * (-1);
+        return 10 + Math.random() * (-1);
     }
 
 }
