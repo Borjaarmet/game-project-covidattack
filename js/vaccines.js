@@ -1,9 +1,8 @@
 class Vaccines {
     constructor(ctx) {
         this.ctx = ctx;
-        this.x = 50;
-        this.y = 40;
-        this.speedy = 3;
+        this.x;
+        this.y;
         this.width = 8;
         this.height = 8;
 

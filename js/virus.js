@@ -32,13 +32,14 @@ class Virus {
     }
 
     startMovingVirus() {
-        this.interval = setInterval(this.move.bind(this), 200);
+
+        this.interval = setInterval(this.move.bind(this), 100);
     }
 
     randomX() {
         return Math.random() * 900;
     }
     randomSpeedY() {
-        return 12 + Math.random() * (-3);
+        return 15 + Math.random() * (-3);
     }
 }

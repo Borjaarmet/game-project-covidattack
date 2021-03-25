@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         player: new Player(ctx),
                         virus: new Virus(ctx),
                         rolls: new Rolls(ctx),
-                        vaccines: new Vaccines(ctx),
+                        //vaccines: new Vaccines(ctx),
                     },
                     printGameOver,
                     printWinScreen

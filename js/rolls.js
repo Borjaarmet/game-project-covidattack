@@ -14,7 +14,7 @@ class Rolls {
     draw() {
 
         let miImg = new Image();
-        miImg.src = "images/Rollswc1.jpg";
+        miImg.src = "images/toiletpaper.png";
         this.ctx.drawImage(miImg, this.x, this.y)
     }
 

@@ -4,10 +4,9 @@ class Game {
         this.player = object.player;
         this.virus = object.virus;
         this.rolls = object.rolls;
-        this.vaccines = object.vaccines;
+        //this.vaccines = object.vaccines;
         this.viruses = [];
         this.rolls = [];
-        this.vaccinesArr = [];
         this.cbWin = callbackWin;
         this.cbOver = callbackOver;
         this.score = 0;
@@ -28,12 +27,11 @@ class Game {
                 case 'ArrowLeft':
                     this.player.goLeft();
                     break;
-                case 'KeyS':
-                    this.generateVaccines();
-                    this.drawVacc();
-
-                    console.log("shoot")
-                    break;
+                    /*case 'KeyS':
+                        this.generateVaccines();
+                        this.player.shootVacc();
+                        console.log("shoot")
+                        break;*/
 
             }
 
@@ -46,42 +44,33 @@ class Game {
         })
     }
     drawRolls() {
-        this.rolls.forEach((roll) => {
-            roll.draw();
-        })
-    }
-    drawVacc() {
-        this.vaccinesArr.forEach((vaccines) => {
-            vaccines.draw();
-        })
-    }
+            this.rolls.forEach((roll) => {
+                roll.draw();
+            })
+        }
+        /*drawVacc() {
+            this.vaccinesArr.forEach((vaccines) => {
+                vaccines.draw();
+            })
+        }*/
 
     generateRandomVirus() {
 
-            for (let i = 0; i < 8; i++) {
-                this.intervalId = setInterval(() => {
-                    this.viruses.push(new Virus(this.ctx));
-                    this.startViruses();
-                }, 4000)
+        for (let i = 0; i < 18; i++) {
 
+            this.viruses.push(new Virus(this.ctx));
 
-            }
         }
-        /*interval() {
-            this.intervalId = setInterval(this.generateRandomVirus, 1000)
-        }*/
+    }
+
 
     generateRandomRolls() {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 12; i++) {
             this.rolls.push(new Rolls(this.ctx));
         }
 
     }
-    generateVaccines() {
-        for (let i = 0; i < 20; i++) {
-            this.vaccinesArr.push(new Vaccines(this.ctx));
-        }
-    }
+
 
     startViruses() {
         this.viruses.forEach((virus) => {
@@ -155,11 +144,11 @@ class Game {
         this.clean();
         this.player.drawPlayer();
         this.drawViruses();
-        this.drawVacc()
+        //this.drawVacc()
         this.drawRolls();
         if (this.rollsCollision()) {
 
-            if (this.score === 5) {
+            if (this.score === 10) {
                 console.log("you win")
                 this.stopRolls();
                 this.stopVirus();
