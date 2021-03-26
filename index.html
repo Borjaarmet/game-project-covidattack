@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/buttons.css">
     <link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet">
 
     <title>Game Project</title>
@@ -28,8 +29,9 @@
             <h3>Setup</h3>
             <button onclick="showInstructions()" class="but-instructions">Instructions</button>
             <div id="instructions hide">
-                <p class="paragraph hide">The objective of the game is to try to catch 10 rolls of toilet paper, taking into account that the enemy (the virus) cannot touch you since it would infect you and you would die thus ending the game. The player can move to both sides,
-                    but keep in mind that if the player disappears on one side of the screen, he will appear directly on the other side. <br> Ahead! try to survive
+                <p class="paragraph hide">The objective of the game is to try to catch 10 rolls of toilet paper, taking into account that the enemy (the virus) cannot touch you since it would infect you and you would die thus ending the game.For this you will have a little help
+                    and that is that you can shoot vaccines to end the virus.This way if you kill 10 viruses you can also win the game! The player can move to both sides, but keep in mind that if the player disappears on one side of the screen, he will
+                    appear directly on the other side. <br> Ahead! try to survive
                 </p>
                 <button onclick="closeInstructions()" class="but-close hide">Close</button>
             </div>
@@ -40,8 +42,12 @@
     <!-- Game Screen -->
 
     <div id="game" style="display: none">
-        <div class="score"><span>Score: </span> <span id="scoreElement"> 0</span></div>
         <canvas id="mycanvas" width="900" height="500"></canvas>
+        <div class="scores">
+            <div class="score"><span>Total Rolls : </span> <span id="scoreElement"> 0</span></div>
+            <div class="score2"><span>Dead Virus : </span> <span id="scoreElement2"> 0</span></div>
+        </div>
+
 
         <div id="but-score">
             <button id="start-button">Start</button>

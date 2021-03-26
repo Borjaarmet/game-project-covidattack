@@ -11,8 +11,12 @@ class Vaccines {
     }
 
     drawVaccines() {
-        this.ctx.fillStyle = "black";
-        this.ctx.fillRect(this.x, this.y, 8, 8);
+        //this.ctx.fillStyle = "black";
+        //this.ctx.fillRect(this.x, this.y, 8, 8);
+
+        let miImg = new Image();
+        miImg.src = "images/syringe (2).jpg";
+        this.ctx.drawImage(miImg, this.x, this.y)
     }
     updateVaccines() {
         setInterval(() => {

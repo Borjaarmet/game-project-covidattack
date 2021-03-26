@@ -13,6 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
             let firstScreen = document.getElementById('first-screen');
             firstScreen.style = 'display: block';
 
+            const covidGame = new Game({
+                    ctx: ctx,
+                    player: new Player(ctx),
+                    virus: new Virus(ctx),
+                    rolls: new Rolls(ctx),
+                    audioGOver: audioGOver,
+                    audioShoot: audioShoot,
+                    audioScore: audioScore,
+                    audioWin: audioWin
+                },
+                printGameOver,
+                printWinScreen
+
+            );
+
+            // covidGame.start();
+
 
 
         });
@@ -47,10 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const audioWin = document.createElement('audio');
     audioWin.src = 'sounds/mixkit-girls-audience-applause-510.wav';
 
+    const audiobtnInstr = document.createElement('audio');
+    audiobtnInstr.src = '/sounds/mixkit-sci-fi-interface-robot-click-901.wav';
+
+    const audiobtnPlay = document.createElement('audio');
+    audiobtnPlay.src = '/sounds/mixkit-magic-sweep-game-trophy-257.wav';
+
+
     function printGameScreen() {
         const playButton = document.querySelector('#play-button');
         console.log("click", playButton)
         playButton.addEventListener('click', () => {
+            audiobtnPlay.play();
             let firstScreen = document.getElementById('first-screen');
             firstScreen.style = 'display: none';
 
@@ -61,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const startButton = document.querySelector('#start-button');
             startButton.addEventListener('click', () => {
+
+                startButton.style = 'display: none';
 
                 const covidGame = new Game({
                         ctx: ctx,
@@ -90,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showInstructions() {
         let btnInstr = document.querySelector('.but-instructions');
         btnInstr.addEventListener('click', () => {
-            console.log("paragraph appears")
+            audiobtnInstr.play();
             let paragraph = document.querySelector('.hide')
             paragraph.classList.remove('hide');
             paragraph.classList.add('show');

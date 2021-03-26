@@ -10,6 +10,7 @@ class Game {
         this.cbWin = callbackWin;
         this.cbOver = callbackOver;
         this.score = 0;
+        this.score2 = 0;
         this.intervalId = undefined;
         this.audioGOver = object.audioGOver;
         this.audioShoot = object.audioShoot;
@@ -30,10 +31,8 @@ class Game {
                 case 'ArrowLeft':
                     this.player.goLeft();
                     break;
-                case 'KeyS':
+                case 'Space':
                     this.generateVaccines();
-
-                    console.log("generate")
                     break;
 
             }
@@ -55,7 +54,7 @@ class Game {
 
     generateRandomVirus() {
 
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < 5; i++) {
 
             this.viruses.push(new Virus(this.ctx));
 
@@ -64,7 +63,7 @@ class Game {
 
 
     generateRandomRolls() {
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 5; i++) {
             this.rolls.push(new Rolls(this.ctx));
         }
 
@@ -118,17 +117,12 @@ class Game {
         })
     }
     stopRolls() {
-            if (this.interval) {
-                clearInterval(this.interval);
-                this.interval = undefined;
-            }
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = undefined;
         }
-        /*audiocollision() {
-            if (this.virusCollision()) {
-                this.audioGOver = new Audio();
-                this.audioGOver.src = "bleep.mp3";
-            }
-        }*/
+    }
+
 
     virusCollision() {
         let collision = false
@@ -138,10 +132,11 @@ class Game {
                 this.player.y < (virus.y + virus.height) &&
                 (this.player.y + this.player.height) > virus.y) {
 
-
                 collision = true;
+                this.viruses.splice(index, 1);
 
-                this.viruses.splice(index, 1)
+
+
 
             }
 
@@ -156,6 +151,7 @@ class Game {
                 (this.player.x + this.player.width / 2) > roll.x &&
                 this.player.y < (roll.y + roll.height) &&
                 (this.player.y + this.player.height) > roll.y) {
+
                 collision = true
                 this.rolls.splice(index, 1);
 
@@ -163,6 +159,8 @@ class Game {
                 this.audioScore.play();
                 let scoreEl = document.getElementById('scoreElement');
                 scoreEl.innerHTML = this.score;
+
+
 
             }
 
@@ -179,11 +177,13 @@ class Game {
                     vacc.y < (virus.y + virus.height) &&
                     (vacc.y + vacc.height) > virus.y) {
 
-
                     collision = true;
+                    this.viruses.splice(indexVirus, 1);
 
-                    this.viruses.splice(indexVirus, 1)
-
+                    this.score2 += 1;
+                    this.audioScore.play();
+                    let scoreEl2 = document.getElementById('scoreElement2');
+                    scoreEl2.innerHTML = this.score2;
                 }
 
             })
@@ -202,7 +202,16 @@ class Game {
         this.player.drawPlayer();
         this.shootVacc();
         this.clearVaccines();
-        this.vaccinesCollision();
+        if (this.vaccinesCollision()) {
+            if (this.score2 === 10) {
+                console.log("you win")
+                this.stopRolls();
+                this.stopVirus();
+                this.cbOver();
+                this.audioWin.play();
+                return;
+            }
+        };
         this.drawViruses();
         this.drawRolls();
         if (this.rollsCollision()) {
