@@ -7,7 +7,7 @@ class Player {
         this.height = 40;
         this.distance = 15;
         this.direction = 'right';
-        this.vaccinesArr = [];
+
 
 
 
@@ -47,17 +47,6 @@ class Player {
         for (let i = 0; i < 50; i++) {
             this.vaccinesArr.push(new Vaccines(this.ctx));
         }
-    }
-    shootVacc() {
-        this.vaccinesArr.forEach((vaccine) => {
-            this.ctx.fillRect(this.x, this.y -= 1, vaccine.width, vaccine.height)
-        })
-
-
-        if (vaccine.y <= 0) {
-            this.vaccinesArr.splice(i, 1)
-        }
-
     }
 
 }
