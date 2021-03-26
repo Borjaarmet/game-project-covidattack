@@ -35,6 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let canvas = document.getElementById('mycanvas');
     const ctx = canvas.getContext('2d');
 
+    const audioGOver = document.createElement('audio');
+    audioGOver.src = 'sounds/wickedmalelaugh1.mp3';
+
+    const audioShoot = document.createElement('audio');
+    audioShoot.src = 'sounds/12-Gauge-Pump-Action-Shotgun-Close-Gunshot-A-www.fesliyanstudios.com.mp3';
+
+    const audioScore = document.createElement('audio');
+    audioScore.src = 'sounds/mixkit-retro-arcade-casino-notification-211 (1).wav';
+
+    const audioWin = document.createElement('audio');
+    audioWin.src = 'sounds/mixkit-girls-audience-applause-510.wav';
 
     function printGameScreen() {
         const playButton = document.querySelector('#play-button');
@@ -56,7 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         player: new Player(ctx),
                         virus: new Virus(ctx),
                         rolls: new Rolls(ctx),
-                        //vaccines: new Vaccines(ctx),
+                        audioGOver: audioGOver,
+                        audioShoot: audioShoot,
+                        audioScore: audioScore,
+                        audioWin: audioWin
                     },
                     printGameOver,
                     printWinScreen
