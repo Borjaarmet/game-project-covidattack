@@ -1,8 +1,8 @@
 class Vaccines {
-    constructor(ctx) {
+    constructor(ctx, positionXInitial, positionYInitial) {
         this.ctx = ctx;
-        this.x;
-        this.y;
+        this.x = positionXInitial;
+        this.y = positionYInitial;
         this.width = 8;
         this.height = 8;
 
@@ -10,12 +10,15 @@ class Vaccines {
 
     }
 
-
-
-    draw() {
+    drawVaccines() {
         this.ctx.fillStyle = "black";
         this.ctx.fillRect(this.x, this.y, 8, 8);
     }
+    updateVaccines() {
+        setInterval(() => {
+            this.y -= 2;
+        }, 150)
 
+    }
 
 }
