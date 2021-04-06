@@ -54,7 +54,7 @@ class Game {
 
     generateRandomVirus() {
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 20; i++) {
 
             this.viruses.push(new Virus(this.ctx));
 
@@ -63,7 +63,7 @@ class Game {
 
 
     generateRandomRolls() {
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 15; i++) {
             this.rolls.push(new Rolls(this.ctx));
         }
 
@@ -134,10 +134,6 @@ class Game {
 
                 collision = true;
                 this.viruses.splice(index, 1);
-
-
-
-
             }
 
         })
@@ -203,7 +199,7 @@ class Game {
         this.shootVacc();
         this.clearVaccines();
         if (this.vaccinesCollision()) {
-            if (this.score2 === 10) {
+            if (this.score2 === 5) {
                 console.log("you win")
                 this.stopRolls();
                 this.stopVirus();
@@ -216,7 +212,7 @@ class Game {
         this.drawRolls();
         if (this.rollsCollision()) {
 
-            if (this.score === 10) {
+            if (this.score === 5) {
                 console.log("you win")
                 this.stopRolls();
                 this.stopVirus();
